@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fan-on-off</title>
+    <style>
+        .fanbox {
+            width: 300px;
+            height: 300px;
+            background-image: url('./assets/images/fan-blades-png.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 100px auto;
+            animation-name: fan;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-play-state: paused;
+        }
+
+        @keyframes fan {
+            0% {
+                transform: rotateZ(0deg);
+            }
+
+            100% {
+                transform: rotateZ(359deg);
+            }
+        }
+    </style>
+    <script>
+        function stopFan() {
+            document.querySelector('[data-pankaj="myfanbox"]').style.animationPlayState = 'paused';
+        }
+
+        function startFan(speed) {
+            const fanBox = document.querySelector('[data-pankaj="myfanbox"]');
+            fanBox.style.animationPlayState = 'running';
+
+            if (speed == 1) {
+                fanBox.style.animationDuration = '20s';
+            } else if (speed == 2) {
+                fanBox.style.animationDuration = '10s';
+            } else {
+                fanBox.style.animationDuration = '1s';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="fanbox" id="fanboxx" data-pankaj="myfanbox"></div>
+    <div style="text-align: center;">
+        <button onclick="stopFan()">STOP</button>
+        <button onclick="startFan(1)">1</button>
+        <button onclick="startFan(2)">2</button>
+        <button onclick="startFan(3)">3</button>
+    </div>
+</body>
+
+</html>
