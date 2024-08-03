@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javaScript Bulb animation </title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<script>
+    function clickMe(state) {  //state  is a formal argument
+        // alert('ok');
+        // alert('state')
+        if (state=='on') {
+            document.body.style.backgroundColor = "yellow";
+            document.getElementById('my-img').setAttribute('src','./assets/images/pic_bulbon.gif')
+        } else {
+            document.body.style.backgroundColor = "black";
+            document.getElementById('my-img').setAttribute('src', './assets/images/pic_bulboff.gif')
+
+        }
+    }
+       
+</script>
+
+<body>
+  <div class="bulb">
+    <img id="my-img" width="200" src="./assets/images/pic_bulboff.gif" alt="">
+    <button onclick="clickMe('on')">ON</button>
+    <button onclick="clickMe('off')">OFF</button>
+
+  </div>
+
+    <script src="./assets/js/app.js"></script>
+</body>
+
+</html>
